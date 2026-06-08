@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mamita Mary — Premium home cleaning</title>
+<meta name="description" content="Mamita Mary professional cleaning services. Care for your home, the way a mom would. Serving Canada, USA, and Mexico." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ───────── Reset + tokens ───────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    /* warm, feminine, premium-but-cozy palette
+       different enough from top2bottomclean's blue/white */
+    --cream:       #FBF8F3;
+    --cream-2:     #F4EFE7;
+    --sage:        #5B7A6B;
+    --sage-dark:   #3F584D;
+    --sage-light:  #B3C4B8;
+    --terra:       #C9986B;
+    --terra-dark:  #A87A4F;
+    --ink:         #2A2D24;
+    --muted:       #6B7068;
+    --line:        #E5DFD3;
+    --white:       #FFFFFF;
+
+    --shadow-sm: 0 1px 3px rgba(42,45,36,0.06);
+    --shadow-md: 0 8px 24px rgba(42,45,36,0.08);
+    --shadow-lg: 0 24px 60px rgba(42,45,36,0.12);
+
+    --radius-sm: 8px;
+    --radius:    14px;
+    --radius-lg: 22px;
+
+    --container: 1180px;
+
+    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --sans:  'Inter', system-ui, -apple-system, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3, .display { font-family: var(--serif); font-weight: 500; line-height: 1.15; color: var(--ink); }
+  h1 { font-size: clamp(2.6rem, 5.5vw, 4.6rem); letter-spacing: -0.02em; }
+  h2 { font-size: clamp(2rem, 3.6vw, 3rem); letter-spacing: -0.01em; margin-bottom: 0.5em; }
+  h3 { font-size: 1.5rem; }
+  .eyebrow {
+    font-family: var(--sans);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--sage);
+    margin-bottom: 16px;
+  }
+
+  /* ───────── Buttons ───────── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 26px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform .15s, box-shadow .15s, background .15s;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--sage); color: var(--cream);
+    box-shadow: var(--shadow-md);
+  }
+  .btn-primary:hover { background: var(--sage-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .btn-ghost {
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+  }
+  .btn-ghost:hover { background: var(--ink); color: var(--cream); }
+  .btn-link {
+    color: var(--terra-dark); font-weight: 600;
+    border-bottom: 1px solid currentColor; padding-bottom: 2px;
+  }
+  .btn-link:hover { color: var(--ink); }
+
+  /* ───────── Nav ───────── */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251,248,243,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .logo {
+    font-family: var(--serif); font-size: 1.55rem; font-weight: 600;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-mark {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--sage), var(--terra));
+    display: grid; place-items: center;
+    color: var(--cream); font-family: var(--serif); font-weight: 700; font-size: 0.95rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 0.92rem; font-weight: 500; color: var(--ink);
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -6px;
+    height: 2px; background: var(--sage);
+    transform: scaleX(0); transition: transform .2s;
+  }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta { display: flex; gap: 12px; align-items: center; }
+  .lang-toggle {
+    display: flex; gap: 2px;
+    background: var(--cream-2);
+    padding: 4px; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 600;
+  }
+  .lang-toggle button {
+    padding: 6px 12px; border-radius: 100px;
+    color: var(--muted); transition: background .15s, color .15s;
+  }
+  .lang-toggle button.active { background: var(--sage); color: var(--cream); }
+  .menu-toggle { display: none; padding: 8px; color: var(--ink); }
+  .menu-toggle svg { width: 24px; height: 24px; }
+
+  /* ───────── Hero ───────── */
+  .hero {
+    padding: 80px 0 100px;
+    position: relative; overflow: hidden;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 80px; align-items: center; }
+  .hero h1 .accent { font-style: italic; color: var(--terra-dark); }
+  .hero-lead {
+    font-size: 1.18rem; color: var(--muted);
+    margin: 24px 0 36px; max-width: 520px;
+  }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-image {
+    aspect-ratio: 4/5; border-radius: var(--radius-lg);
+    background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&auto=format&fit=crop') center/cover;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+  .hero-image::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(42,45,36,0.15));
+    border-radius: var(--radius-lg);
+  }
+  .hero-badge {
+    position: absolute; left: -32px; bottom: 40px;
+    background: var(--cream); padding: 18px 22px; border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    display: flex; align-items: center; gap: 14px;
+    z-index: 2;
+  }
+  .hero-badge .stars { color: var(--terra); font-size: 1.1rem; letter-spacing: 1px; }
+  .hero-badge strong { font-size: 0.95rem; }
+  .hero-badge span { display: block; color: var(--muted); font-size: 0.78rem; }
+
+  /* ───────── Trust strip ───────── */
+  .trust {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--cream-2);
+    padding: 28px 0;
+  }
+  .trust-row {
+    display: flex; justify-content: space-around; gap: 24px; flex-wrap: wrap;
+    text-align: center;
+  }
+  .trust-item { display: flex; gap: 10px; align-items: center; color: var(--ink); font-size: 0.9rem; font-weight: 500; }
+  .trust-item svg { width: 20px; height: 20px; color: var(--sage); flex-shrink: 0; }
+
+  /* ───────── Section base ───────── */
+  section.block { padding: 100px 0; }
+  .section-head { text-align: center; max-width: 720px; margin: 0 auto 60px; }
+  .section-head p { color: var(--muted); font-size: 1.1rem; margin-top: 8px; }
+
+  /* ───────── Services grid ───────── */
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s, box-shadow .2s;
+    display: flex; flex-direction: column;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+  .service-img {
+    aspect-ratio: 4/3; background: var(--cream-2);
+    background-size: cover; background-position: center;
+  }
+  .service-body { padding: 26px 24px 28px; flex: 1; display: flex; flex-direction: column; }
+  .service-body h3 { font-size: 1.4rem; margin-bottom: 10px; }
+  .service-body p { color: var(--muted); flex: 1; font-size: 0.95rem; }
+  .service-body .btn-link { margin-top: 16px; align-self: flex-start; }
+
+  /* ───────── About / Story ───────── */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-image {
+    aspect-ratio: 3/4;
+    border-radius: var(--radius-lg);
+    background: url('https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&auto=format&fit=crop') center/cover;
+    box-shadow: var(--shadow-lg);
+  }
+  .signature {
+    font-family: var(--serif); font-style: italic; font-size: 1.4rem;
+    color: var(--terra-dark); margin-top: 24px;
+  }
+
+  /* ───────── Why us / 4 reasons ───────── */
+  .reasons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .reason {
+    text-align: center; padding: 32px 20px;
+    background: var(--cream-2); border-radius: var(--radius);
+    transition: background .2s;
+  }
+  .reason:hover { background: var(--white); box-shadow: var(--shadow-sm); }
+  .reason-icon {
+    width: 56px; height: 56px; margin: 0 auto 18px;
+    background: var(--sage); color: var(--cream);
+    border-radius: 50%; display: grid; place-items: center;
+  }
+  .reason-icon svg { width: 28px; height: 28px; }
+  .reason h3 { font-size: 1.1rem; font-family: var(--sans); font-weight: 600; margin-bottom: 8px; }
+  .reason p { color: var(--muted); font-size: 0.92rem; }
+
+  /* ───────── Process (steps) ───────── */
+  .process { background: var(--cream-2); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; counter-reset: step; }
+  .step { position: relative; padding-top: 60px; }
+  .step::before {
+    counter-increment: step; content: counter(step, decimal-leading-zero);
+    position: absolute; top: 0; left: 0;
+    font-family: var(--serif); font-size: 2.6rem; color: var(--terra); font-weight: 600;
+    line-height: 1;
+  }
+  .step h3 { font-size: 1.2rem; font-family: var(--sans); font-weight: 600; margin-bottom: 8px; }
+  .step p { color: var(--muted); font-size: 0.94rem; }
+
+  /* ───────── Testimonials ───────── */
+  .testimonials { background: var(--sage); color: var(--cream); }
+  .testimonials h2 { color: var(--cream); }
+  .testimonials .section-head p { color: rgba(251,248,243,0.78); }
+  .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .quote {
+    background: rgba(251,248,243,0.06);
+    border: 1px solid rgba(251,248,243,0.15);
+    padding: 32px 28px; border-radius: var(--radius);
+    backdrop-filter: blur(10px);
+  }
+  .quote .stars { color: var(--terra); font-size: 1rem; letter-spacing: 2px; margin-bottom: 14px; }
+  .quote blockquote {
+    font-family: var(--serif); font-size: 1.18rem; line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .quote footer { font-size: 0.88rem; opacity: 0.78; }
+
+  /* ───────── Service areas (3 countries) ───────── */
+  .areas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .area {
+    text-align: center; padding: 36px 20px;
+    background: var(--white); border-radius: var(--radius);
+    border: 1px solid var(--line);
+  }
+  .area-flag { font-size: 2.2rem; margin-bottom: 14px; }
+  .area h3 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 8px; }
+  .area p { color: var(--muted); font-size: 0.92rem; margin-bottom: 16px; }
+  .area-list { font-size: 0.9rem; color: var(--ink); }
+
+  /* ───────── FAQ ───────── */
+  .faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+  .faq-item {
+    background: var(--cream-2); border-radius: var(--radius);
+    padding: 22px 24px; transition: background .2s;
+  }
+  .faq-item summary {
+    list-style: none; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    font-weight: 600; font-size: 1.05rem;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+'; font-size: 1.6rem; color: var(--sage);
+    transition: transform .2s;
+  }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p {
+    margin-top: 14px; color: var(--muted); font-size: 0.96rem;
+  }
+
+  /* ───────── Booking CTA ───────── */
+  .book {
+    background: linear-gradient(135deg, var(--terra) 0%, var(--terra-dark) 100%);
+    color: var(--cream);
+  }
+  .book h2 { color: var(--cream); }
+  .book .section-head p { color: rgba(251,248,243,0.88); }
+  .book-form {
+    max-width: 720px; margin: 0 auto;
+    background: var(--cream); border-radius: var(--radius-lg);
+    padding: 40px; box-shadow: var(--shadow-lg);
+    color: var(--ink);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px; }
+  .form-row.full { grid-template-columns: 1fr; }
+  .form-row label {
+    display: flex; flex-direction: column; gap: 6px;
+    font-size: 0.85rem; font-weight: 600; color: var(--ink);
+  }
+  .form-row input, .form-row select, .form-row textarea {
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--line);
+    font-family: var(--sans); font-size: 0.95rem;
+    background: var(--white); color: var(--ink);
+    transition: border-color .15s;
+  }
+  .form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+    outline: none; border-color: var(--sage);
+  }
+  .form-row textarea { resize: vertical; min-height: 90px; }
+  .book-form .btn { margin-top: 8px; width: 100%; justify-content: center; }
+
+  /* ───────── Footer ───────── */
+  footer.site-footer {
+    background: var(--ink); color: var(--cream-2);
+    padding: 70px 0 30px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px;
+    margin-bottom: 50px;
+  }
+  .footer-col h4 {
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em;
+    color: rgba(251,248,243,0.55); margin-bottom: 18px; font-family: var(--sans);
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { color: var(--cream-2); font-size: 0.94rem; opacity: 0.85; transition: opacity .15s; }
+  .footer-col a:hover { opacity: 1; }
+  .footer-brand .logo { color: var(--cream); margin-bottom: 14px; }
+  .footer-brand p { color: rgba(251,248,243,0.65); font-size: 0.92rem; max-width: 320px; }
+  .socials { display: flex; gap: 10px; margin-top: 18px; }
+  .socials a {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(251,248,243,0.08);
+    display: grid; place-items: center;
+    transition: background .15s;
+  }
+  .socials a:hover { background: var(--sage); }
+  .socials svg { width: 16px; height: 16px; }
+  .footer-bottom {
+    border-top: 1px solid rgba(251,248,243,0.1);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 0.82rem; color: rgba(251,248,243,0.5);
+  }
+
+  /* ───────── Responsive ───────── */
+  @media (max-width: 960px) {
+    .nav-links, .nav-cta .lang-toggle, .nav-cta .btn { display: none; }
+    .nav-cta { gap: 0; }
+    .menu-toggle { display: block; }
+    .hero { padding: 56px 0 70px; }
+    .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 50px; }
+    .services-grid, .reasons, .steps, .quotes, .areas { grid-template-columns: 1fr; }
+    .reasons { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 36px 24px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .form-row { grid-template-columns: 1fr; }
+    section.block { padding: 70px 0; }
+    .book-form { padding: 28px 22px; }
+    .hero-badge { left: 16px; bottom: -28px; padding: 12px 16px; }
+  }
+  @media (max-width: 540px) {
+    .reasons { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 2.4rem; }
+  }
+
+  /* ───────── i18n: hide by default, JS toggles ───────── */
+  [data-i18n][data-lang]:not([data-lang="en"]) { display: none; }
+</style>
+</head>
+<body>
+
+<!-- ════════════ NAV ════════════ -->
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">
+      <span class="logo-mark">M</span>
+      <span>Mamita Mary</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services"          data-key="nav.services">Services</a>
+      <a href="#about"             data-key="nav.about">About</a>
+      <a href="#process"           data-key="nav.process">How it works</a>
+      <a href="#testimonials"      data-key="nav.reviews">Reviews</a>
+      <a href="#areas"             data-key="nav.areas">Areas</a>
+      <a href="#faq"               data-key="nav.faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="lang-toggle" role="group">
+        <button data-setlang="en" class="active">EN</button>
+        <button data-setlang="es">ES</button>
+        <button data-setlang="fr">FR</button>
+      </div>
+      <a href="#book" class="btn btn-primary" data-key="nav.book">Book now</a>
+      <button class="menu-toggle" aria-label="Menu">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow" data-key="hero.eyebrow">Premium cleaning · Insured & bonded</p>
+      <h1>
+        <span data-key="hero.title.a">A clean home,</span>
+        <br>
+        <span class="accent" data-key="hero.title.b">with a mother's care.</span>
+      </h1>
+      <p class="hero-lead" data-key="hero.lead">
+        Eco-friendly residential and commercial cleaning across Canada, the USA, and Mexico.
+        Trained professionals, transparent pricing, satisfaction guaranteed.
+      </p>
+      <div class="hero-cta">
+        <a href="#book" class="btn btn-primary" data-key="hero.cta1">Get free quote</a>
+        <a href="#services" class="btn btn-ghost" data-key="hero.cta2">See services</a>
+      </div>
+    </div>
+    <div style="position: relative;">
+      <div class="hero-image"></div>
+      <div class="hero-badge">
+        <div>
+          <div class="stars">★★★★★</div>
+          <strong data-key="hero.badge.title">4.9 / 5 average</strong>
+          <span data-key="hero.badge.sub">From 380+ happy homes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TRUST STRIP ════════════ -->
+<section class="trust">
+  <div class="container trust-row">
+    <div class="trust-item">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-key="trust.1">Fully insured & bonded</span>
+    </div>
+    <div class="trust-item">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6m-6 0v-4a1 1 0 011-1h4a1 1 0 011 1v4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-key="trust.2">Residential & commercial</span>
+    </div>
+    <div class="trust-item">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-key="trust.3">Free same-day quotes</span>
+    </div>
+    <div class="trust-item">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.5 0-3 .5-3 2s1.5 2 3 2 3 .5 3 2-1.5 2-3 2m0-8V6m0 12v-2m9-4a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-key="trust.4">Transparent flat pricing</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ SERVICES ════════════ -->
+<section class="block" id="services">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-key="services.eyebrow">What we do</p>
+      <h2 data-key="services.title">Cleaning that fits your life</h2>
+      <p data-key="services.lead">Six core services. Each one tailored to your home, your schedule, your budget.</p>
+    </div>
+    <div class="services-grid">
+
+      <!-- Service 1 -->
+      <article class="service-card" id="s-residential">
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&auto=format&fit=crop');"></div>
+        <div class="service-body">
+          <h3 data-key="srv.1.title">Regular maintenance</h3>
+          <p data-key="srv.1.body">Weekly, bi-weekly, or monthly. Keep your home consistently beautiful without lifting a finger.</p>
+          <a href="#book" class="btn-link" data-key="srv.cta">Book this →</a>
+        </div>
+      </article>
+
+      <!-- Service 2 -->
+      <article class="service-card" id="s-deep">
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1581578017093-cd30fce4eeb7?w=800&auto=format&fit=crop');"></div>
+        <div class="service-body">
+          <h3 data-key="srv.2.title">Deep clean</h3>
+          <p data-key="srv.2.body">Top-to-bottom reset. Baseboards, inside cabinets, behind appliances, every corner. Perfect twice a year.</p>
+          <a href="#book" class="btn-link" data-key="srv.cta">Book this →</a>
+        </div>
+      </article>
+
+      <!-- Service 3 -->
+      <article class="service-card" id="s-movein">
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&auto=format&fit=crop');"></div>
+        <div class="service-body">
+          <h3 data-key="srv.3.title">Move-in / move-out</h3>
+          <p data-key="srv.3.body">Empty-home detailed clean. Walk in to a sparkling new place — or leave the old one impeccable.</p>
+          <a href="#book" class="btn-link" data-key="srv.cta">Book this →</a>
+        </div>
+      </article>
+
+      <!-- Service 4 -->
+      <article class="service-card" id="s-post">
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&auto=format&fit=crop');"></div>
+        <div class="service-body">
+          <h3 data-key="srv.4.title">Post-construction</h3>
+          <p data-key="srv.4.body">Dust everywhere? Paint splatters? We bring it from job site to move-in ready in one visit.</p>
+          <a href="#book" class="btn-link" data-key="srv.cta">Book this →</a>
+        </div>
+      </article>
+
+      <!-- Service 5 -->
+      <article class="service-card" id="s-commercial">
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop');"></div>
+        <div class="service-body">
+          <h3 data-key="srv.5.title">Office & commercial</h3>
+          <p data-key="srv.5.body">Salons, spas, clinics, small offices. After-hours cleaning so your team walks into perfection every morning.</p>
+          <a href="#book" class="btn-link" data-key="srv.cta">Book this →</a>
+        </div>
+      </article>
+
+      <!-- Service 6 -->
+      <article class="service-card" id="s-eco">
+        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&auto=format&fit=crop');"></div>
+        <div class="service-body">
+          <h3 data-key="srv.6.title">Eco-friendly clean</h3>
+          <p data-key="srv.6.body">Non-toxic, child-safe and pet-safe products. Same shine, zero harsh chemicals — and a smaller footprint.</p>
+          <a href="#book" class="btn-link" data-key="srv.cta">Book this →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ ABOUT / STORY ════════════ -->
+<section class="block" id="about" style="background: var(--cream-2);">
+  <div class="container about-grid">
+    <div class="about-image"></div>
+    <div>
+      <p class="eyebrow" data-key="about.eyebrow">Our story</p>
+      <h2 data-key="about.title">Started by a mom. Built on care.</h2>
+      <p style="color: var(--muted); font-size: 1.05rem; margin-bottom: 18px;" data-key="about.p1">
+        Mary started cleaning homes the way she cleaned her own — with attention, with respect,
+        and with the kind of pride only a mother brings. What began as helping one neighbor
+        grew into a team that now serves three countries.
+      </p>
+      <p style="color: var(--muted); font-size: 1.05rem;" data-key="about.p2">
+        Every Mamita Mary cleaner is trained personally, vetted thoroughly, and treated like family.
+        Because we know your home isn't just a space — it's where life happens.
+      </p>
+      <p class="signature">— Mary G., Founder</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ WHY US ════════════ -->
+<section class="block">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-key="why.eyebrow">Why families choose us</p>
+      <h2 data-key="why.title">Care you can feel</h2>
+    </div>
+    <div class="reasons">
+      <div class="reason">
+        <div class="reason-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 data-key="why.1.t">Vetted team</h3>
+        <p data-key="why.1.b">Background-checked, insured, trained by Mary herself.</p>
+      </div>
+      <div class="reason">
+        <div class="reason-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 data-key="why.2.t">On time, always</h3>
+        <p data-key="why.2.b">We arrive in your window or your next clean is on us.</p>
+      </div>
+      <div class="reason">
+        <div class="reason-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 data-key="why.3.t">Eco-conscious</h3>
+        <p data-key="why.3.b">Plant-based products available at no extra cost.</p>
+      </div>
+      <div class="reason">
+        <div class="reason-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 data-key="why.4.t">Satisfaction guaranteed</h3>
+        <p data-key="why.4.b">If something's off, we come back and fix it — free.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ PROCESS / HOW IT WORKS ════════════ -->
+<section class="block process" id="process">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-key="how.eyebrow">How it works</p>
+      <h2 data-key="how.title">Four steps to a sparkling home</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3 data-key="how.1.t">Book online</h3>
+        <p data-key="how.1.b">Tell us about your space. Takes 2 minutes, no signup needed.</p>
+      </div>
+      <div class="step">
+        <h3 data-key="how.2.t">Get your quote</h3>
+        <p data-key="how.2.b">Transparent flat pricing within the hour. No surprises, no hidden fees.</p>
+      </div>
+      <div class="step">
+        <h3 data-key="how.3.t">We clean</h3>
+        <p data-key="how.3.b">A vetted Mamita Mary team arrives in your window with everything needed.</p>
+      </div>
+      <div class="step">
+        <h3 data-key="how.4.t">Enjoy your home</h3>
+        <p data-key="how.4.b">Walk in to a fresh space. Rate us. Rebook in one tap if you loved it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ TESTIMONIALS ════════════ -->
+<section class="block testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" style="color: var(--terra);" data-key="rev.eyebrow">What our families say</p>
+      <h2 data-key="rev.title">Real homes, real reviews</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <blockquote data-key="rev.1.q">"Mamita Mary's team treats my place like their own. After two years of weekly visits, I still get excited every time."</blockquote>
+        <footer data-key="rev.1.a">— Lucia M., Ottawa</footer>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <blockquote data-key="rev.2.q">"Moved into a brand new condo and they had it move-in perfect in 4 hours. Worth every penny."</blockquote>
+        <footer data-key="rev.2.a">— David T., San Diego</footer>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <blockquote data-key="rev.3.q">"Hago horario semanal con ellas para mi spa. Mis clientes notan la diferencia y siempre comentan."</blockquote>
+        <footer data-key="rev.3.a">— Adriana R., Mexicali</footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ SERVICE AREAS — 3 countries ════════════ -->
+<section class="block" id="areas">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-key="area.eyebrow">Where we serve</p>
+      <h2 data-key="area.title">Three countries. One standard of care.</h2>
+    </div>
+    <div class="areas">
+      <div class="area">
+        <div class="area-flag">🇨🇦</div>
+        <h3 data-key="area.ca.t">Canada</h3>
+        <p data-key="area.ca.b">Founded in Ottawa, growing across Ontario.</p>
+        <div class="area-list">Ottawa · Toronto · Vancouver</div>
+      </div>
+      <div class="area">
+        <div class="area-flag">🇺🇸</div>
+        <h3 data-key="area.us.t">United States</h3>
+        <p data-key="area.us.b">Serving Southern California and the Southwest.</p>
+        <div class="area-list">San Diego · Phoenix · Los Angeles</div>
+      </div>
+      <div class="area">
+        <div class="area-flag">🇲🇽</div>
+        <h3 data-key="area.mx.t">México</h3>
+        <p data-key="area.mx.b">Baja California y el Norte, con atención bilingüe.</p>
+        <div class="area-list">Mexicali · Tijuana · Ensenada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ FAQ ════════════ -->
+<section class="block" style="background: var(--cream-2);" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" data-key="faq.eyebrow">Frequently asked</p>
+      <h2 data-key="faq.title">Good questions, real answers</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary data-key="faq.1.q">Are your cleaners insured?</summary>
+        <p data-key="faq.1.a">Yes. Every Mamita Mary team member is fully insured and bonded. We carry $2M liability so you and your home are covered.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-key="faq.2.q">Do you bring your own supplies?</summary>
+        <p data-key="faq.2.a">Always. We bring premium professional-grade supplies and equipment. Eco-friendly products are available on request at no extra cost.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-key="faq.3.q">What if I'm not satisfied?</summary>
+        <p data-key="faq.3.a">Our satisfaction guarantee: if anything isn't right, tell us within 24 hours and we come back to fix it free of charge.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-key="faq.4.q">Do I need to be home?</summary>
+        <p data-key="faq.4.a">Not at all. Many of our clients give us a key or door code. Our team is fully vetted and trained for unsupervised cleans.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-key="faq.5.q">How do you price?</summary>
+        <p data-key="faq.5.a">Flat-rate pricing based on home size and service type. We send you a transparent quote within the hour — no hidden fees, no surprises.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-key="faq.6.q">Can I cancel or reschedule?</summary>
+        <p data-key="faq.6.a">Yes. Just give us 24 hours notice and there's no fee. Same-day cancellations may incur a 50% charge.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ BOOKING / CTA ════════════ -->
+<section class="block book" id="book">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow" style="color: var(--cream);" data-key="book.eyebrow">Get started</p>
+      <h2 data-key="book.title">Request your free quote</h2>
+      <p data-key="book.lead">No obligation. Quote within the hour during business hours.</p>
+    </div>
+    <form class="book-form" onsubmit="event.preventDefault(); alert('Quote request sent — Mary will respond within the hour.');">
+      <div class="form-row">
+        <label>
+          <span data-key="form.name">Your name</span>
+          <input type="text" required placeholder="Jane Smith" />
+        </label>
+        <label>
+          <span data-key="form.phone">Phone</span>
+          <input type="tel" required placeholder="(000) 000-0000" />
+        </label>
+      </div>
+      <div class="form-row">
+        <label>
+          <span data-key="form.email">Email</span>
+          <input type="email" required placeholder="you@email.com" />
+        </label>
+        <label>
+          <span data-key="form.country">Country</span>
+          <select required>
+            <option value="">—</option>
+            <option>Canada</option>
+            <option>United States</option>
+            <option>México</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-row">
+        <label>
+          <span data-key="form.service">Service needed</span>
+          <select required>
+            <option value="">—</option>
+            <option data-key="form.opt.1">Regular maintenance</option>
+            <option data-key="form.opt.2">Deep clean</option>
+            <option data-key="form.opt.3">Move-in / move-out</option>
+            <option data-key="form.opt.4">Post-construction</option>
+            <option data-key="form.opt.5">Office / commercial</option>
+            <option data-key="form.opt.6">Eco-friendly</option>
+          </select>
+        </label>
+        <label>
+          <span data-key="form.size">Home size</span>
+          <select required>
+            <option value="">—</option>
+            <option data-key="form.size.1">Studio / 1 bedroom</option>
+            <option data-key="form.size.2">2-3 bedrooms</option>
+            <option data-key="form.size.3">4+ bedrooms / large</option>
+            <option data-key="form.size.4">Commercial space</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-row full">
+        <label>
+          <span data-key="form.notes">Notes (optional)</span>
+          <textarea placeholder="Anything we should know? Pets, special requests, parking instructions…"></textarea>
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary" data-key="form.submit">Request my quote</button>
+    </form>
+  </div>
+</section>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div class="logo"><span class="logo-mark">M</span><span>Mamita Mary</span></div>
+        <p data-key="foot.tag">Cleaning with a mother's care. Serving Canada, USA, and Mexico since 2025.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.87v-7H8v-2.87h2.5V9.5c0-2.5 1.5-3.87 3.75-3.87 1.08 0 2.25.2 2.25.2v2.5h-1.27c-1.25 0-1.63.77-1.63 1.56v1.97H17l-.5 2.87h-2.5v7A10 10 0 0022 12z"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.15-1.8-.9-2.05-1-.27-.1-.47-.15-.67.15s-.78 1-.95 1.2c-.18.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.67-1.6-.91-2.2-.24-.58-.49-.5-.67-.51-.17 0-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35zM12 0C5.4 0 0 5.4 0 12c0 2.1.55 4.16 1.6 5.96L0 24l6.18-1.62A11.95 11.95 0 0012 24c6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-key="foot.col1">Services</h4>
+        <ul>
+          <li><a href="#s-residential">Regular cleaning</a></li>
+          <li><a href="#s-deep">Deep clean</a></li>
+          <li><a href="#s-movein">Move-in / out</a></li>
+          <li><a href="#s-post">Post-construction</a></li>
+          <li><a href="#s-commercial">Office</a></li>
+          <li><a href="#s-eco">Eco-friendly</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-key="foot.col2">Company</h4>
+        <ul>
+          <li><a href="#about" data-key="foot.about">About</a></li>
+          <li><a href="#process" data-key="foot.how">How it works</a></li>
+          <li><a href="#testimonials" data-key="foot.reviews">Reviews</a></li>
+          <li><a href="#areas" data-key="foot.areas">Service areas</a></li>
+          <li><a href="/careers" data-key="foot.careers">Careers</a></li>
+          <li><a href="/blog" data-key="foot.blog">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-key="foot.col3">Contact</h4>
+        <ul>
+          <li>📞 (000) 000-0000</li>
+          <li>✉ hello@mamitamary.com</li>
+          <li><a href="#book" data-key="foot.book">Book consultation</a></li>
+          <li><a href="/privacy" data-key="foot.privacy">Privacy</a></li>
+          <li><a href="/terms" data-key="foot.terms">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-key="foot.copy">© 2025 Mamita Mary Cleaning Co. All rights reserved.</span>
+      <span data-key="foot.made">Crafted with care · CA · US · MX</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════ JS — language toggle + mobile menu ════════════ -->
+<script>
+const I18N = {
+  en: {
+    'nav.services': 'Services', 'nav.about': 'About', 'nav.process': 'How it works',
+    'nav.reviews': 'Reviews', 'nav.areas': 'Areas', 'nav.faq': 'FAQ', 'nav.book': 'Book now',
+    'hero.eyebrow': 'Premium cleaning · Insured & bonded',
+    'hero.title.a': 'A clean home,', 'hero.title.b': "with a mother's care.",
+    'hero.lead': 'Eco-friendly residential and commercial cleaning across Canada, the USA, and Mexico. Trained professionals, transparent pricing, satisfaction guaranteed.',
+    'hero.cta1': 'Get free quote', 'hero.cta2': 'See services',
+    'hero.badge.title': '4.9 / 5 average', 'hero.badge.sub': 'From 380+ happy homes',
+    'trust.1': 'Fully insured & bonded', 'trust.2': 'Residential & commercial',
+    'trust.3': 'Free same-day quotes', 'trust.4': 'Transparent flat pricing',
+    'services.eyebrow': 'What we do', 'services.title': 'Cleaning that fits your life',
+    'services.lead': 'Six core services. Each one tailored to your home, your schedule, your budget.',
+    'srv.1.title': 'Regular maintenance', 'srv.1.body': 'Weekly, bi-weekly, or monthly. Keep your home consistently beautiful without lifting a finger.',
+    'srv.2.title': 'Deep clean', 'srv.2.body': 'Top-to-bottom reset. Baseboards, inside cabinets, behind appliances, every corner. Perfect twice a year.',
+    'srv.3.title': 'Move-in / move-out', 'srv.3.body': 'Empty-home detailed clean. Walk in to a sparkling new place — or leave the old one impeccable.',
+    'srv.4.title': 'Post-construction', 'srv.4.body': 'Dust everywhere? Paint splatters? We bring it from job site to move-in ready in one visit.',
+    'srv.5.title': 'Office & commercial', 'srv.5.body': 'Salons, spas, clinics, small offices. After-hours cleaning so your team walks into perfection every morning.',
+    'srv.6.title': 'Eco-friendly clean', 'srv.6.body': 'Non-toxic, child-safe and pet-safe products. Same shine, zero harsh chemicals — and a smaller footprint.',
+    'srv.cta': 'Book this →',
+    'about.eyebrow': 'Our story', 'about.title': 'Started by a mom. Built on care.',
+    'about.p1': "Mary started cleaning homes the way she cleaned her own — with attention, with respect, and with the kind of pride only a mother brings. What began as helping one neighbor grew into a team that now serves three countries.",
+    'about.p2': "Every Mamita Mary cleaner is trained personally, vetted thoroughly, and treated like family. Because we know your home isn't just a space — it's where life happens.",
+    'why.eyebrow': 'Why families choose us', 'why.title': 'Care you can feel',
+    'why.1.t': 'Vetted team', 'why.1.b': 'Background-checked, insured, trained by Mary herself.',
+    'why.2.t': 'On time, always', 'why.2.b': 'We arrive in your window or your next clean is on us.',
+    'why.3.t': 'Eco-conscious', 'why.3.b': 'Plant-based products available at no extra cost.',
+    'why.4.t': 'Satisfaction guaranteed', 'why.4.b': "If something's off, we come back and fix it — free.",
+    'how.eyebrow': 'How it works', 'how.title': 'Four steps to a sparkling home',
+    'how.1.t': 'Book online', 'how.1.b': 'Tell us about your space. Takes 2 minutes, no signup needed.',
+    'how.2.t': 'Get your quote', 'how.2.b': 'Transparent flat pricing within the hour. No surprises, no hidden fees.',
+    'how.3.t': 'We clean', 'how.3.b': 'A vetted Mamita Mary team arrives in your window with everything needed.',
+    'how.4.t': 'Enjoy your home', 'how.4.b': 'Walk in to a fresh space. Rate us. Rebook in one tap if you loved it.',
+    'rev.eyebrow': 'What our families say', 'rev.title': 'Real homes, real reviews',
+    'rev.1.q': '"Mamita Mary\'s team treats my place like their own. After two years of weekly visits, I still get excited every time."',
+    'rev.1.a': '— Lucia M., Ottawa',
+    'rev.2.q': '"Moved into a brand new condo and they had it move-in perfect in 4 hours. Worth every penny."',
+    'rev.2.a': '— David T., San Diego',
+    'rev.3.q': '"Hago horario semanal con ellas para mi spa. Mis clientes notan la diferencia y siempre comentan."',
+    'rev.3.a': '— Adriana R., Mexicali',
+    'area.eyebrow': 'Where we serve', 'area.title': 'Three countries. One standard of care.',
+    'area.ca.t': 'Canada', 'area.ca.b': 'Founded in Ottawa, growing across Ontario.',
+    'area.us.t': 'United States', 'area.us.b': 'Serving Southern California and the Southwest.',
+    'area.mx.t': 'México', 'area.mx.b': 'Baja California y el Norte, con atención bilingüe.',
+    'faq.eyebrow': 'Frequently asked', 'faq.title': 'Good questions, real answers',
+    'faq.1.q': 'Are your cleaners insured?',
+    'faq.1.a': 'Yes. Every Mamita Mary team member is fully insured and bonded. We carry $2M liability so you and your home are covered.',
+    'faq.2.q': 'Do you bring your own supplies?',
+    'faq.2.a': 'Always. We bring premium professional-grade supplies and equipment. Eco-friendly products are available on request at no extra cost.',
+    'faq.3.q': "What if I'm not satisfied?",
+    'faq.3.a': 'Our satisfaction guarantee: if anything isn\'t right, tell us within 24 hours and we come back to fix it free of charge.',
+    'faq.4.q': 'Do I need to be home?',
+    'faq.4.a': 'Not at all. Many of our clients give us a key or door code. Our team is fully vetted and trained for unsupervised cleans.',
+    'faq.5.q': 'How do you price?',
+    'faq.5.a': 'Flat-rate pricing based on home size and service type. We send you a transparent quote within the hour — no hidden fees, no surprises.',
+    'faq.6.q': 'Can I cancel or reschedule?',
+    'faq.6.a': "Yes. Just give us 24 hours notice and there's no fee. Same-day cancellations may incur a 50% charge.",
+    'book.eyebrow': 'Get started', 'book.title': 'Request your free quote',
+    'book.lead': 'No obligation. Quote within the hour during business hours.',
+    'form.name': 'Your name', 'form.phone': 'Phone', 'form.email': 'Email', 'form.country': 'Country',
+    'form.service': 'Service needed', 'form.size': 'Home size', 'form.notes': 'Notes (optional)',
+    'form.submit': 'Request my quote',
+    'form.opt.1': 'Regular maintenance', 'form.opt.2': 'Deep clean', 'form.opt.3': 'Move-in / move-out',
+    'form.opt.4': 'Post-construction', 'form.opt.5': 'Office / commercial', 'form.opt.6': 'Eco-friendly',
+    'form.size.1': 'Studio / 1 bedroom', 'form.size.2': '2-3 bedrooms', 'form.size.3': '4+ bedrooms / large', 'form.size.4': 'Commercial space',
+    'foot.tag': 'Cleaning with a mother\'s care. Serving Canada, USA, and Mexico since 2025.',
+    'foot.col1': 'Services', 'foot.col2': 'Company', 'foot.col3': 'Contact',
+    'foot.about': 'About', 'foot.how': 'How it works', 'foot.reviews': 'Reviews', 'foot.areas': 'Service areas',
+    'foot.careers': 'Careers', 'foot.blog': 'Blog', 'foot.book': 'Book consultation',
+    'foot.privacy': 'Privacy', 'foot.terms': 'Terms',
+    'foot.copy': '© 2025 Mamita Mary Cleaning Co. All rights reserved.',
+    'foot.made': 'Crafted with care · CA · US · MX',
+  },
+  es: {
+    'nav.services': 'Servicios', 'nav.about': 'Nosotros', 'nav.process': 'Cómo funciona',
+    'nav.reviews': 'Reseñas', 'nav.areas': 'Zonas', 'nav.faq': 'Preguntas', 'nav.book': 'Reservar',
+    'hero.eyebrow': 'Limpieza premium · Aseguradas y certificadas',
+    'hero.title.a': 'Una casa limpia,', 'hero.title.b': 'con el cuidado de mamá.',
+    'hero.lead': 'Limpieza residencial y comercial ecológica en Canadá, Estados Unidos y México. Equipo capacitado, precios transparentes, satisfacción garantizada.',
+    'hero.cta1': 'Cotización gratis', 'hero.cta2': 'Ver servicios',
+    'hero.badge.title': '4.9 / 5 promedio', 'hero.badge.sub': 'De más de 380 hogares felices',
+    'trust.1': 'Aseguradas y certificadas', 'trust.2': 'Residencial y comercial',
+    'trust.3': 'Cotización gratis el mismo día', 'trust.4': 'Precio fijo transparente',
+    'services.eyebrow': 'Lo que hacemos', 'services.title': 'Limpieza que se adapta a tu vida',
+    'services.lead': 'Seis servicios principales. Cada uno hecho a la medida de tu hogar, tu horario y tu presupuesto.',
+    'srv.1.title': 'Mantenimiento regular', 'srv.1.body': 'Semanal, quincenal o mensual. Mantén tu casa hermosa sin mover un dedo.',
+    'srv.2.title': 'Limpieza profunda', 'srv.2.body': 'Reseteo completo. Zoclos, gabinetes por dentro, detrás de electrodomésticos, cada rincón. Ideal dos veces al año.',
+    'srv.3.title': 'Mudanza entrada / salida', 'srv.3.body': 'Limpieza detallada de casa vacía. Entra a un lugar reluciente — o deja el viejo impecable.',
+    'srv.4.title': 'Post-construcción', 'srv.4.body': '¿Polvo por todos lados? ¿Salpicaduras de pintura? Lo dejamos listo para mudarte en una visita.',
+    'srv.5.title': 'Oficina y comercial', 'srv.5.body': 'Salones, spas, clínicas, oficinas pequeñas. Limpieza fuera de horario para que tu equipo entre a la perfección cada mañana.',
+    'srv.6.title': 'Limpieza ecológica', 'srv.6.body': 'Productos no tóxicos, seguros para niños y mascotas. Mismo brillo, cero químicos fuertes — y menor huella ambiental.',
+    'srv.cta': 'Reservar →',
+    'about.eyebrow': 'Nuestra historia', 'about.title': 'Empezó una mamá. Construido con cuidado.',
+    'about.p1': 'Mary empezó limpiando casas como limpiaba la suya — con atención, con respeto, y con el orgullo que solo una madre trae. Lo que empezó ayudando a una vecina creció a un equipo que hoy atiende tres países.',
+    'about.p2': 'Cada miembro de Mamita Mary es capacitada personalmente, verificada a fondo, y tratada como familia. Porque sabemos que tu casa no es solo un espacio — es donde sucede la vida.',
+    'why.eyebrow': 'Por qué las familias nos eligen', 'why.title': 'Cuidado que se siente',
+    'why.1.t': 'Equipo verificado', 'why.1.b': 'Antecedentes revisados, aseguradas, capacitadas por Mary.',
+    'why.2.t': 'Siempre puntual', 'why.2.b': 'Llegamos en tu ventana o la siguiente limpieza va por nuestra cuenta.',
+    'why.3.t': 'Conciencia ecológica', 'why.3.b': 'Productos de origen vegetal disponibles sin costo extra.',
+    'why.4.t': 'Satisfacción garantizada', 'why.4.b': 'Si algo no quedó bien, regresamos y lo arreglamos — gratis.',
+    'how.eyebrow': 'Cómo funciona', 'how.title': 'Cuatro pasos a un hogar reluciente',
+    'how.1.t': 'Reserva en línea', 'how.1.b': 'Cuéntanos sobre tu espacio. Toma 2 minutos, sin registro.',
+    'how.2.t': 'Recibe tu cotización', 'how.2.b': 'Precio fijo transparente en menos de una hora. Sin sorpresas, sin cargos ocultos.',
+    'how.3.t': 'Limpiamos', 'how.3.b': 'Un equipo de Mamita Mary verificado llega en tu ventana con todo lo necesario.',
+    'how.4.t': 'Disfruta tu hogar', 'how.4.b': 'Entra a un espacio fresco. Califícanos. Reagenda con un toque si te encantó.',
+    'rev.eyebrow': 'Lo que dicen las familias', 'rev.title': 'Hogares reales, reseñas reales',
+    'rev.1.q': '"El equipo de Mamita Mary trata mi casa como propia. Después de dos años de visitas semanales, sigo emocionada cada vez."',
+    'rev.1.a': '— Lucía M., Ottawa',
+    'rev.2.q': '"Me mudé a un condo nuevo y lo dejaron impecable en 4 horas. Vale cada peso."',
+    'rev.2.a': '— David T., San Diego',
+    'rev.3.q': '"Hago horario semanal con ellas para mi spa. Mis clientes notan la diferencia y siempre comentan."',
+    'rev.3.a': '— Adriana R., Mexicali',
+    'area.eyebrow': 'Dónde atendemos', 'area.title': 'Tres países. Un mismo estándar de cuidado.',
+    'area.ca.t': 'Canadá', 'area.ca.b': 'Fundadas en Ottawa, creciendo por Ontario.',
+    'area.us.t': 'Estados Unidos', 'area.us.b': 'Atendiendo el sur de California y el suroeste.',
+    'area.mx.t': 'México', 'area.mx.b': 'Baja California y el norte, atención bilingüe.',
+    'faq.eyebrow': 'Preguntas frecuentes', 'faq.title': 'Buenas preguntas, respuestas reales',
+    'faq.1.q': '¿Tus limpiadoras tienen seguro?',
+    'faq.1.a': 'Sí. Cada miembro de Mamita Mary está totalmente asegurada y certificada. Tenemos seguro de $2M para que tú y tu casa estén cubiertos.',
+    'faq.2.q': '¿Traen sus propios productos?',
+    'faq.2.a': 'Siempre. Traemos productos y equipo profesional premium. Los productos ecológicos están disponibles sin costo extra.',
+    'faq.3.q': '¿Y si no quedo satisfecha?',
+    'faq.3.a': 'Nuestra garantía: si algo no quedó bien, avísanos en 24 horas y regresamos a arreglarlo sin costo.',
+    'faq.4.q': '¿Necesito estar en casa?',
+    'faq.4.a': 'Para nada. Muchos clientes nos dejan llave o código. Nuestro equipo está verificado y entrenado para limpiezas sin supervisión.',
+    'faq.5.q': '¿Cómo cobran?',
+    'faq.5.a': 'Precio fijo según tamaño y tipo de servicio. Te enviamos cotización transparente en menos de una hora — sin sorpresas.',
+    'faq.6.q': '¿Puedo cancelar o reagendar?',
+    'faq.6.a': 'Sí. Solo avísanos 24 horas antes y no hay cargo. Cancelaciones el mismo día pueden tener un cargo del 50%.',
+    'book.eyebrow': 'Empieza ya', 'book.title': 'Pide tu cotización gratis',
+    'book.lead': 'Sin compromiso. Cotización en menos de una hora en horario hábil.',
+    'form.name': 'Tu nombre', 'form.phone': 'Teléfono', 'form.email': 'Correo', 'form.country': 'País',
+    'form.service': 'Servicio que necesitas', 'form.size': 'Tamaño del hogar', 'form.notes': 'Notas (opcional)',
+    'form.submit': 'Pedir mi cotización',
+    'form.opt.1': 'Mantenimiento regular', 'form.opt.2': 'Limpieza profunda', 'form.opt.3': 'Mudanza',
+    'form.opt.4': 'Post-construcción', 'form.opt.5': 'Oficina', 'form.opt.6': 'Ecológica',
+    'form.size.1': 'Estudio / 1 recámara', 'form.size.2': '2-3 recámaras', 'form.size.3': '4+ recámaras', 'form.size.4': 'Comercial',
+    'foot.tag': 'Limpieza con el cuidado de una madre. Atendemos Canadá, EE.UU. y México desde 2025.',
+    'foot.col1': 'Servicios', 'foot.col2': 'Empresa', 'foot.col3': 'Contacto',
+    'foot.about': 'Nosotros', 'foot.how': 'Cómo funciona', 'foot.reviews': 'Reseñas', 'foot.areas': 'Zonas',
+    'foot.careers': 'Trabaja con nosotras', 'foot.blog': 'Blog', 'foot.book': 'Reservar consulta',
+    'foot.privacy': 'Privacidad', 'foot.terms': 'Términos',
+    'foot.copy': '© 2025 Mamita Mary Cleaning Co. Todos los derechos reservados.',
+    'foot.made': 'Hecho con cariño · CA · US · MX',
+  },
+  fr: {
+    'nav.services': 'Services', 'nav.about': 'À propos', 'nav.process': 'Comment ça marche',
+    'nav.reviews': 'Avis', 'nav.areas': 'Zones', 'nav.faq': 'FAQ', 'nav.book': 'Réserver',
+    'hero.eyebrow': 'Ménage premium · Assurées et cautionnées',
+    'hero.title.a': 'Une maison propre,', 'hero.title.b': "avec l'amour d'une maman.",
+    'hero.lead': "Ménage résidentiel et commercial écologique au Canada, aux États-Unis et au Mexique. Équipe formée, prix transparents, satisfaction garantie.",
+    'hero.cta1': 'Devis gratuit', 'hero.cta2': 'Voir les services',
+    'hero.badge.title': '4.9 / 5 en moyenne', 'hero.badge.sub': 'De plus de 380 foyers satisfaits',
+    'trust.1': 'Assurées et cautionnées', 'trust.2': 'Résidentiel et commercial',
+    'trust.3': 'Devis gratuit le jour même', 'trust.4': 'Tarif fixe transparent',
+    'services.eyebrow': 'Ce que nous faisons', 'services.title': "Un ménage qui s'adapte à votre vie",
+    'services.lead': 'Six services principaux. Chacun adapté à votre maison, votre horaire, votre budget.',
+    'srv.1.title': 'Entretien régulier', 'srv.1.body': 'Hebdomadaire, aux deux semaines ou mensuel. Gardez votre maison toujours belle sans lever le petit doigt.',
+    'srv.2.title': 'Grand ménage', 'srv.2.body': "Réinitialisation complète. Plinthes, intérieur d'armoires, derrière les électroménagers, chaque recoin. Parfait deux fois par an.",
+    'srv.3.title': 'Déménagement', 'srv.3.body': 'Ménage détaillé de logement vide. Emménagez dans un endroit étincelant — ou laissez l\'ancien impeccable.',
+    'srv.4.title': 'Après-construction', 'srv.4.body': 'Poussière partout? Éclaboussures de peinture? On transforme le chantier en prêt-à-vivre en une visite.',
+    'srv.5.title': 'Bureau et commercial', 'srv.5.body': 'Salons, spas, cliniques, petits bureaux. Ménage hors heures pour que votre équipe entre dans la perfection chaque matin.',
+    'srv.6.title': 'Ménage écolo', 'srv.6.body': 'Produits non-toxiques, sécuritaires pour enfants et animaux. Même éclat, zéro produit chimique fort.',
+    'srv.cta': 'Réserver →',
+    'about.eyebrow': 'Notre histoire', 'about.title': 'Lancée par une maman. Bâtie sur la bienveillance.',
+    'about.p1': "Mary a commencé à nettoyer comme elle nettoyait chez elle — avec attention, respect, et cette fierté que seule une mère apporte. Ce qui a commencé en aidant une voisine est devenu une équipe qui dessert trois pays.",
+    'about.p2': "Chaque femme de ménage de Mamita Mary est formée personnellement, vérifiée à fond, et traitée comme de la famille. Parce que votre maison n'est pas qu'un espace — c'est là où la vie se passe.",
+    'why.eyebrow': 'Pourquoi les familles nous choisissent', 'why.title': 'Un soin qui se ressent',
+    'why.1.t': 'Équipe vérifiée', 'why.1.b': 'Antécédents vérifiés, assurées, formées par Mary elle-même.',
+    'why.2.t': 'Toujours à l\'heure', 'why.2.b': 'Nous arrivons dans votre plage ou le prochain ménage est offert.',
+    'why.3.t': 'Éco-responsable', 'why.3.b': 'Produits à base de plantes disponibles sans frais supplémentaires.',
+    'why.4.t': 'Satisfaction garantie', 'why.4.b': "Si quelque chose ne va pas, on revient le corriger — gratuitement.",
+    'how.eyebrow': 'Comment ça marche', 'how.title': 'Quatre étapes vers une maison étincelante',
+    'how.1.t': 'Réservez en ligne', 'how.1.b': 'Parlez-nous de votre espace. Ça prend 2 minutes, sans inscription.',
+    'how.2.t': 'Recevez votre devis', 'how.2.b': "Tarif fixe transparent en moins d'une heure. Aucune surprise.",
+    'how.3.t': 'Nous nettoyons', 'how.3.b': 'Une équipe Mamita Mary vérifiée arrive dans votre plage avec tout le nécessaire.',
+    'how.4.t': 'Profitez de votre maison', 'how.4.b': 'Entrez dans un espace frais. Notez-nous. Réservez à nouveau en un clic.',
+    'rev.eyebrow': 'Ce que disent les familles', 'rev.title': 'Vrais foyers, vrais avis',
+    'rev.1.q': "\"L'équipe de Mamita Mary traite ma maison comme la leur. Après deux ans de visites hebdomadaires, je suis encore excitée à chaque fois.\"",
+    'rev.1.a': '— Lucia M., Ottawa',
+    'rev.2.q': '"Emménagé dans un condo neuf et ils l\'ont rendu parfait en 4 heures. Vaut chaque dollar."',
+    'rev.2.a': '— David T., San Diego',
+    'rev.3.q': '"Hago horario semanal con ellas para mi spa. Mis clientes notan la diferencia y siempre comentan."',
+    'rev.3.a': '— Adriana R., Mexicali',
+    'area.eyebrow': 'Où nous desservons', 'area.title': 'Trois pays. Un seul standard de qualité.',
+    'area.ca.t': 'Canada', 'area.ca.b': 'Fondée à Ottawa, en expansion en Ontario.',
+    'area.us.t': 'États-Unis', 'area.us.b': 'Desservant le sud de la Californie et le sud-ouest.',
+    'area.mx.t': 'Mexique', 'area.mx.b': 'Basse-Californie et le nord, service bilingue.',
+    'faq.eyebrow': 'Questions fréquentes', 'faq.title': 'Bonnes questions, vraies réponses',
+    'faq.1.q': 'Vos employées sont-elles assurées?',
+    'faq.1.a': 'Oui. Chaque membre de Mamita Mary est entièrement assurée et cautionnée. Nous portons 2 M$ de responsabilité civile.',
+    'faq.2.q': 'Apportez-vous vos produits?',
+    'faq.2.a': 'Toujours. Nous apportons des produits et équipements professionnels haut de gamme. Produits écolos disponibles sans frais.',
+    'faq.3.q': 'Et si je ne suis pas satisfaite?',
+    'faq.3.a': "Notre garantie: si quelque chose ne va pas, dites-le dans les 24h et nous revenons le corriger gratuitement.",
+    'faq.4.q': 'Dois-je être présente?',
+    'faq.4.a': 'Pas du tout. Beaucoup de clients nous donnent une clé. Notre équipe est vérifiée et formée pour les ménages sans supervision.',
+    'faq.5.q': 'Comment fixez-vous le prix?',
+    'faq.5.a': "Tarif fixe selon la taille du logement et le type de service. Devis transparent en moins d'une heure — sans frais cachés.",
+    'faq.6.q': 'Puis-je annuler ou reporter?',
+    'faq.6.a': "Oui. Avec un préavis de 24h il n'y a aucun frais. Les annulations le jour même peuvent entraîner des frais de 50%.",
+    'book.eyebrow': 'Commencez', 'book.title': 'Demandez votre devis gratuit',
+    'book.lead': "Sans engagement. Devis dans l'heure pendant les heures ouvrables.",
+    'form.name': 'Votre nom', 'form.phone': 'Téléphone', 'form.email': 'Courriel', 'form.country': 'Pays',
+    'form.service': 'Service requis', 'form.size': 'Taille de la maison', 'form.notes': 'Notes (facultatif)',
+    'form.submit': 'Demander mon devis',
+    'form.opt.1': 'Entretien régulier', 'form.opt.2': 'Grand ménage', 'form.opt.3': 'Déménagement',
+    'form.opt.4': 'Après-construction', 'form.opt.5': 'Bureau', 'form.opt.6': 'Écolo',
+    'form.size.1': 'Studio / 1 chambre', 'form.size.2': '2-3 chambres', 'form.size.3': '4+ chambres', 'form.size.4': 'Commercial',
+    'foot.tag': "Ménage avec l'amour d'une maman. Au service du Canada, des É.-U. et du Mexique depuis 2025.",
+    'foot.col1': 'Services', 'foot.col2': 'Entreprise', 'foot.col3': 'Contact',
+    'foot.about': 'À propos', 'foot.how': 'Comment ça marche', 'foot.reviews': 'Avis', 'foot.areas': 'Zones',
+    'foot.careers': 'Carrières', 'foot.blog': 'Blogue', 'foot.book': 'Réserver',
+    'foot.privacy': 'Confidentialité', 'foot.terms': 'Conditions',
+    'foot.copy': '© 2025 Mamita Mary Cleaning Co. Tous droits réservés.',
+    'foot.made': 'Fait avec amour · CA · US · MX',
+  }
+};
+
+function setLang(lang) {
+  const dict = I18N[lang];
+  if (!dict) return;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const k = el.getAttribute('data-key');
+    if (dict[k]) el.textContent = dict[k];
+  });
+  document.querySelectorAll('.lang-toggle button').forEach(b => {
+    b.classList.toggle('active', b.dataset.setlang === lang);
+  });
+  try { localStorage.setItem('mm-lang', lang); } catch(_) {}
+}
+
+document.querySelectorAll('.lang-toggle button').forEach(btn => {
+  btn.addEventListener('click', () => setLang(btn.dataset.setlang));
+});
+
+// Restore on load
+try {
+  const saved = localStorage.getItem('mm-lang');
+  if (saved && I18N[saved]) setLang(saved);
+} catch(_) {}
+
+// Mobile menu (placeholder)
+document.querySelector('.menu-toggle')?.addEventListener('click', () => {
+  alert('Menú móvil — agregar drawer aquí o usar enlaces del footer.');
+});
+</script>
+</body>
+</html>
