@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mamita Mary — Premium home cleaning</title>
 <meta name="description" content="Mamita Mary professional cleaning services. Care for your home, the way a mom would. Serving Canada, USA, and Mexico." />
+<meta name="robots" content="noindex, nofollow" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -400,9 +401,14 @@
 
   /* ───────── i18n: hide by default, JS toggles ───────── */
   [data-i18n][data-lang]:not([data-lang="en"]) { display: none; }
+
+  /* ───────── Vista previa (quitar al pasar a su dominio) ───────── */
+  .preview-bar { background: var(--ink); color: var(--cream); text-align: center; font-size: 0.85rem; line-height: 1.4; padding: 10px 16px; }
 </style>
 </head>
 <body>
+
+<div class="preview-bar">Vista previa para Mamita Mary — las reseñas, cifras y el formulario son de ejemplo. · Preview — reviews, figures and form are samples.</div>
 
 <!-- ════════════ NAV ════════════ -->
 <header>
@@ -751,7 +757,7 @@
       <h2 data-key="book.title">Request your free quote</h2>
       <p data-key="book.lead">No obligation. Quote within the hour during business hours.</p>
     </div>
-    <form class="book-form" onsubmit="event.preventDefault(); alert('Quote request sent — Mary will respond within the hour.');">
+    <form class="book-form" onsubmit="event.preventDefault(); alert('Vista previa: este formulario todavía no envía. · Preview: this form does not send yet.');">
       <div class="form-row">
         <label>
           <span data-key="form.name">Your name</span>
