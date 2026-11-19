@@ -263,7 +263,7 @@
   .testimonials { background: var(--sage); color: var(--cream); }
   .testimonials h2 { color: var(--cream); }
   .testimonials .section-head p { color: rgba(251,248,243,0.78); }
-  .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .quotes { display: grid; grid-template-columns: minmax(0, 680px); justify-content: center; gap: 28px; }
   .quote {
     background: rgba(251,248,243,0.06);
     border: 1px solid rgba(251,248,243,0.15);
@@ -669,16 +669,6 @@
         <blockquote data-key="rev.1.q">"Mamita Mary's team treats my place like their own. After two years of weekly visits, I still get excited every time."</blockquote>
         <footer data-key="rev.1.a">— Lucia M., Ottawa</footer>
       </div>
-      <div class="quote">
-        <div class="stars">★★★★★</div>
-        <blockquote data-key="rev.2.q">"Moved into a brand new condo and they had it move-in perfect in 4 hours. Worth every penny."</blockquote>
-        <footer data-key="rev.2.a">— David T., San Diego</footer>
-      </div>
-      <div class="quote">
-        <div class="stars">★★★★★</div>
-        <blockquote data-key="rev.3.q">"Hago horario semanal con ellas para mi spa. Mis clientes notan la diferencia y siempre comentan."</blockquote>
-        <footer data-key="rev.3.a">— Adriana R., Mexicali</footer>
-      </div>
     </div>
   </div>
 </section>
@@ -909,10 +899,6 @@ const I18N = {
     'rev.eyebrow': 'What our families say', 'rev.title': 'Real homes, real reviews',
     'rev.1.q': '"Mamita Mary\'s team treats my place like their own. After two years of weekly visits, I still get excited every time."',
     'rev.1.a': '— Lucia M., Ottawa',
-    'rev.2.q': '"Moved into a brand new condo and they had it move-in perfect in 4 hours. Worth every penny."',
-    'rev.2.a': '— David T., San Diego',
-    'rev.3.q': '"Hago horario semanal con ellas para mi spa. Mis clientes notan la diferencia y siempre comentan."',
-    'rev.3.a': '— Adriana R., Mexicali',
     'area.eyebrow': 'Where we serve', 'area.title': 'Three countries. One standard of care.',
     'area.ca.t': 'Canada', 'area.ca.b': 'Founded in Ottawa, growing across Ontario.',
     'area.us.t': 'United States', 'area.us.b': 'Serving Southern California and the Southwest.',
@@ -981,10 +967,6 @@ const I18N = {
     'rev.eyebrow': 'Lo que dicen las familias', 'rev.title': 'Hogares reales, reseñas reales',
     'rev.1.q': '"El equipo de Mamita Mary trata mi casa como propia. Después de dos años de visitas semanales, sigo emocionada cada vez."',
     'rev.1.a': '— Lucía M., Ottawa',
-    'rev.2.q': '"Me mudé a un condo nuevo y lo dejaron impecable en 4 horas. Vale cada peso."',
-    'rev.2.a': '— David T., San Diego',
-    'rev.3.q': '"Hago horario semanal con ellas para mi spa. Mis clientes notan la diferencia y siempre comentan."',
-    'rev.3.a': '— Adriana R., Mexicali',
     'area.eyebrow': 'Dónde atendemos', 'area.title': 'Tres países. Un mismo estándar de cuidado.',
     'area.ca.t': 'Canadá', 'area.ca.b': 'Fundadas en Ottawa, creciendo por Ontario.',
     'area.us.t': 'Estados Unidos', 'area.us.b': 'Atendiendo el sur de California y el suroeste.',
@@ -1053,10 +1035,6 @@ const I18N = {
     'rev.eyebrow': 'Ce que disent les familles', 'rev.title': 'Vrais foyers, vrais avis',
     'rev.1.q': "\"L'équipe de Mamita Mary traite ma maison comme la leur. Après deux ans de visites hebdomadaires, je suis encore excitée à chaque fois.\"",
     'rev.1.a': '— Lucia M., Ottawa',
-    'rev.2.q': '"Emménagé dans un condo neuf et ils l\'ont rendu parfait en 4 heures. Vaut chaque dollar."',
-    'rev.2.a': '— David T., San Diego',
-    'rev.3.q': '"Hago horario semanal con ellas para mi spa. Mis clientes notan la diferencia y siempre comentan."',
-    'rev.3.a': '— Adriana R., Mexicali',
     'area.eyebrow': 'Où nous desservons', 'area.title': 'Trois pays. Un seul standard de qualité.',
     'area.ca.t': 'Canada', 'area.ca.b': 'Fondée à Ottawa, en expansion en Ontario.',
     'area.us.t': 'États-Unis', 'area.us.b': 'Desservant le sud de la Californie et le sud-ouest.',
